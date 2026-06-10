@@ -1,1 +1,236 @@
-/* Add your CSS here */
+/* =============================================
+   Intel Sustainability Timeline - style.css
+   ============================================= */
+
+/* ---------- Reset & Base Styles ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Intel Clear', 'Segoe UI', Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #2d2d2d;
+  line-height: 1.6;
+}
+
+/* ---------- Hero / Header Section ---------- */
+.hero {
+  background: linear-gradient(135deg, #0071c5 0%, #004e9e 60%, #003070 100%);
+  color: #ffffff;
+  padding: 60px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.intel-logo {
+  width: 120px;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ---------- Timeline Section ---------- */
+.timeline-section {
+  padding: 48px 24px 64px;
+  background: #f5f5f5;
+}
+
+/* Horizontal scrolling timeline on large screens */
+.timeline {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 16px 8px 32px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #0071c5 #e0e0e0;
+}
+
+.timeline::-webkit-scrollbar {
+  height: 6px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 3px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: #0071c5;
+  border-radius: 3px;
+}
+
+/* ---------- Timeline Cards ---------- */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  min-width: 280px;
+  max-width: 300px;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* CSS Transform: scale + shadow on hover (LevelUp bonus) */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 113, 197, 0.25);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #0071c5, #005fa3);
+  padding: 20px 20px 16px;
+  color: #ffffff;
+}
+
+.card-year {
+  font-size: 2rem;
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -1px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Card details: hidden by default, revealed on hover */
+.card-details {
+  padding: 16px 20px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease, padding 0.3s ease;
+}
+
+.card:hover .card-details {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.card-details p {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Show a subtle "hover hint" indicator */
+.card::after {
+  content: 'Hover for details';
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 0.7rem;
+  color: #999;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::after {
+  opacity: 0;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: #1a1a1a;
+  color: #aaa;
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsive Design ---------- */
+/* Stack vertically on small/mobile screens */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .timeline {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 0 24px;
+  }
+
+  .card {
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-align: none;
+  }
+
+  /* Always show card details on mobile (no hover) */
+  .card-details {
+    opacity: 1;
+    max-height: none;
+    padding: 16px 20px;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .card::after {
+    display: none;
+  }
+}/* Add your CSS here */
