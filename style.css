@@ -1,1 +1,279 @@
-/* Add your CSS here */
+/* =========================================
+   Intel Sustainability — Project 3
+   style.css
+   ========================================= */
+
+:root {
+  --intel-blue: #0071c5;
+  --intel-blue-dark: #004d87;
+  --intel-blue-light: #e8f4fd;
+  --intel-white: #ffffff;
+  --intel-gray: #f5f5f5;
+  --intel-text: #1a1a1a;
+  --intel-muted: #5a5a5a;
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  --transition: 0.3s ease;
+}
+
+*,*::before,*::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--intel-text);
+  background-color: var(--intel-white);
+  margin: 0;
+  padding: 0;
+}
+
+/* Language Toggle Bar */
+.lang-toggle-bar {
+  background-color: var(--intel-blue-dark);
+  text-align: end;
+  padding: 0.4rem 1rem;
+}
+
+/* Header */
+.site-header {
+  background-color: var(--intel-blue);
+  color: var(--intel-white);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.header-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  filter: brightness(0) invert(1);
+}
+
+.site-header h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--intel-white);
+}
+
+.header-subtitle {
+  font-size: 1.1rem;
+  max-width: 680px;
+  margin: 0 auto;
+  opacity: 0.92;
+  color: var(--intel-white);
+}
+
+/* Timeline Section */
+.timeline-section {
+  background-color: var(--intel-gray);
+  padding: 2.5rem 1rem;
+}
+
+.timeline-scroll {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.5rem 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+[dir="rtl"] .timeline-scroll {
+  flex-direction: row-reverse;
+}
+
+.timeline-card {
+  background-color: var(--intel-white);
+  border-radius: 8px;
+  padding: 1.25rem;
+  min-width: 240px;
+  max-width: 260px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-align: start;
+}
+
+.timeline-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,113,197,0.2);
+}
+
+.card-year {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--intel-blue);
+  margin-bottom: 0.25rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--intel-text);
+  margin-bottom: 0.75rem;
+}
+
+.card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.scroll-hint { font-size: 0.875rem; }
+
+/* Pillars 3-Column Section */
+.pillars-section { background-color: var(--intel-white); }
+
+.section-heading {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--intel-text);
+}
+
+.pillar-card {
+  background-color: var(--intel-gray);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition);
+  text-align: start;
+}
+
+.pillar-card:hover { transform: translateY(-4px); }
+
+.pillar-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--intel-blue);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pillar-title .bi { font-size: 1.4rem; }
+
+.pillar-card p {
+  flex-grow: 1;
+  color: var(--intel-text);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.learn-more-btn {
+  display: inline-block;
+  color: var(--intel-blue);
+  border: 2px solid var(--intel-blue);
+  border-radius: 4px;
+  padding: 0.45rem 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--transition), color var(--transition);
+  align-self: flex-start;
+  background-color: transparent;
+}
+
+.learn-more-btn:hover,
+.learn-more-btn:focus {
+  background-color: var(--intel-blue);
+  color: var(--intel-white);
+}
+
+[dir="rtl"] .learn-more-btn { align-self: flex-end; }
+
+/* Subscribe Section */
+.subscribe-section { background-color: var(--intel-blue-light); }
+
+.subscribe-box {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.subscribe-box h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--intel-blue);
+  margin-bottom: 0.5rem;
+}
+
+.subscribe-desc {
+  color: var(--intel-muted);
+  margin-bottom: 1.5rem;
+}
+
+.subscribe-form .form-control {
+  border: 2px solid var(--intel-blue);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  color: var(--intel-text);
+}
+
+.subscribe-form .form-control:focus {
+  border-color: var(--intel-blue-dark);
+  box-shadow: 0 0 0 3px rgba(0,113,197,0.25);
+  outline: none;
+}
+
+.subscribe-btn {
+  background-color: var(--intel-blue);
+  color: var(--intel-white);
+  font-weight: 600;
+  border: 2px solid var(--intel-blue);
+  border-radius: 4px;
+  padding: 0.6rem 1.5rem;
+  transition: background-color var(--transition);
+}
+
+.subscribe-btn:hover,
+.subscribe-btn:focus {
+  background-color: var(--intel-blue-dark);
+  border-color: var(--intel-blue-dark);
+  color: var(--intel-white);
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--intel-blue-dark);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.875rem;
+}
+
+.footer-link {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  color: var(--intel-white);
+  text-decoration: underline;
+}
+
+.footer-sep {
+  margin: 0 0.4rem;
+  opacity: 0.5;
+}
+
+/* RTL Global Adjustments */
+[dir="rtl"] body { text-align: right; }
+[dir="rtl"] .timeline-card,
+[dir="rtl"] .pillar-card { text-align: right; }
+[dir="rtl"] .pillar-title { flex-direction: row-reverse; }
+[dir="rtl"] .subscribe-form .form-text { text-align: right; }
+
+/* Responsive */
+@media (max-width: 767px) {
+  .timeline-card { min-width: 200px; }
+  .lang-toggle-bar { text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
